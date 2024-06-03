@@ -1,6 +1,6 @@
 import { ticTacToe } from '../../pages/3-en-raya/3-en-raya'
 import { ahorcado } from '../../pages/ahorcado/ahorcado'
-import { whacAMole } from '../../pages/whac-a-mole/whac-a-mole'
+import { PPT } from '../../pages/piedra-papel-tijera/piedra-papel-tijera'
 import './header.css'
 
 export const Header = (divApp) => {
@@ -12,11 +12,11 @@ export const Header = (divApp) => {
 
     btnTicTacToe.textContent = "3 En Raya"
     btnAhorcado.textContent = "Ahorcado"
-    btnWhac.textContent = "Whac a Mole"
+    btnWhac.textContent = "Piedra Papel Tijera"
 
     btnTicTacToe.addEventListener("click", ticTacToe)
     btnAhorcado.addEventListener("click", ahorcado)
-    btnWhac.addEventListener("click", whacAMole)
+    btnWhac.addEventListener("click", PPT)
 
     header.appendChild(btnTicTacToe)
     header.appendChild(btnAhorcado)

@@ -2,7 +2,7 @@
 .container{
     display: flex;
     width: 100%;
-    gap: 50px;
+    gap: 30px;
 }
 .words{
     font-size: 40px;

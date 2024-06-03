@@ -1,0 +1,43 @@
+.ppt-container{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.counter-div{
+    display: flex;
+    padding: 20px 30px;
+    border: 2px solid black;
+    justify-content: center;
+}
+
+.counter{
+
+    font-size: 20px;
+    
+}
+
+.play-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.img-container{
+    display: flex;
+    gap: 20px;
+}
+
+.img{
+    cursor: pointer;
+    background-color: white;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.reset{
+    margin-top: 50px;
+    padding: 5px 20px;
+    border: none;
+    background-color: rgb(248, 59, 59);
+    border-radius: 10px;
+}

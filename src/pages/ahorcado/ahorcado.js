@@ -16,14 +16,16 @@ export const ahorcado = () => {
   const wrongLetter = document.createElement("p");
   const keyboardDiv = document.createElement("div");
 
+
   wordToGuess.classList.add("words");
   keyboardDiv.classList.add("keyboard-div");
   wrongLetter.classList.add("wrong-letter");
 
   wrongLetter.textContent = "Letras incorrectas: ";
 
-  divContainer.append(wordToGuess);
-  divContainer.append(wrongLetter);
+
+  divContainer.appendChild(wordToGuess);
+  divContainer.appendChild(wrongLetter);
   divContainer.appendChild(keyboardDiv);
 
   const start = () => {
