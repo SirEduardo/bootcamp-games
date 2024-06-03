@@ -8,9 +8,9 @@ export const PPT = () => {
   const WIN = 1;
   const LOSS = 2;
 
-  const ROCK = "Piedra";
-  const PAPER = "Papel";
-  const SCISSORS = "Tijeras";
+  const ROCK = "piedra";
+  const PAPER = "papel";
+  const SCISSORS = "tijeras";
 
   let compCounter = 0
   let userCounter = 0
