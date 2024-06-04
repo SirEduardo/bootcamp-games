@@ -4,11 +4,11 @@ export const words = [
     "universidad",
     "bicicleta",
     "flor",
-    "comunicaciones",
+    "comunicacion",
     "biblioteca",
     "mariposa",
     "sol",
     "marea",
-    "desarrollador",
+    "programador",
     "viento",
   ];
