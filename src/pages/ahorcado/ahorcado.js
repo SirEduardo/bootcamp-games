@@ -11,13 +11,14 @@ export const ahorcado = () => {
   let mistakes = {value: savedGame ? savedGame.mistakes : 0};
   let gameFinished = {value: savedGame ? savedGame.gameFinished : false};
   const wrongLetters = savedGame ? savedGame.wrongLetters : []
+ 
 
   const wordToGuess = document.createElement("div");
   const wrongLetter = document.createElement("p");
   const keyboardDiv = document.createElement("div");
 
 
-  wordToGuess.classList.add("words");
+  wordToGuess.classList.add("words"); 
   keyboardDiv.classList.add("keyboard-div");
   wrongLetter.classList.add("wrong-letter");
 
@@ -36,6 +37,7 @@ export const ahorcado = () => {
       span.classList.add("word")
       if (savedGame && savedGame.correctLetters.includes(word[i])){
         span.textContent = word[i] + ""
+        span.classList.add("guessed")
       }
       wordToGuess.appendChild(span)
     }
@@ -75,6 +77,7 @@ export const ahorcado = () => {
     };
     localStorage.setItem('hangmanGame', JSON.stringify(gameState));
   };
+
 
   
   const resetButton = () => {

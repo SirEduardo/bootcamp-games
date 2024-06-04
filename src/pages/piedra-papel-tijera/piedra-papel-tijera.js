@@ -15,7 +15,7 @@ export const PPT = () => {
   let compCounter = 0
   let userCounter = 0
 
-  const container = document.createElement("div")
+  const container = document.createElement("div");
   const divCounter = document.createElement("div");
   const counter = document.createElement("p");
   const resMessage = document.createElement("p");
@@ -23,7 +23,7 @@ export const PPT = () => {
   const rockbtn = document.createElement("img");
   const scissorsbtn = document.createElement("img");
   const paperbtn = document.createElement("img");
-  const playDiv = document.createElement("div")
+  const playDiv = document.createElement("div");
   const userImg = document.createElement("img");
   const computerImg = document.createElement("img");
 
@@ -31,8 +31,8 @@ export const PPT = () => {
   scissorsbtn.src = "public/tijeras.png";
   paperbtn.src = "public/papel.png";
 
-  container.classList.add("ppt-container")
-  divCounter.classList.add("counter-div")
+  container.classList.add("ppt-container");
+  divCounter.classList.add("counter-div");
   btnDiv.classList.add("img-container");
   rockbtn.classList.add("img");
   scissorsbtn.classList.add("img");
