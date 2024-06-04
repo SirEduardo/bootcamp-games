@@ -4,6 +4,7 @@ import { PPT } from '../../pages/piedra-papel-tijera/piedra-papel-tijera'
 import './header.css'
 
 export const Header = (divApp) => {
+  
 
     const header = document.createElement("header")
     const btnTicTacToe = document.createElement("button")

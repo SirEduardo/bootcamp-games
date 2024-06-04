@@ -6,11 +6,11 @@ export const ahorcado = () => {
   const divContainer = document.querySelector(".container");
   divContainer.innerHTML = "";
 
-
-  const word = words[Math.floor(Math.random() * words.length)].toUpperCase();
-
-  let mistakes = {value: 0};
-  let gameFinished = {value: false};
+  const savedGame = JSON.parse(localStorage.getItem("hangmanGame")) 
+  const word = savedGame ? savedGame.word : words[Math.floor(Math.random() * words.length)].toUpperCase();
+  let mistakes = {value: savedGame ? savedGame.mistakes : 0};
+  let gameFinished = {value: savedGame ? savedGame.gameFinished : false};
+  const wrongLetters = savedGame ? savedGame.wrongLetters : []
 
   const wordToGuess = document.createElement("div");
   const wrongLetter = document.createElement("p");
@@ -21,7 +21,8 @@ export const ahorcado = () => {
   keyboardDiv.classList.add("keyboard-div");
   wrongLetter.classList.add("wrong-letter");
 
-  wrongLetter.textContent = "Letras incorrectas: ";
+  wrongLetter.textContent = "Letras incorrectas: " + wrongLetters;
+
 
 
   divContainer.appendChild(wordToGuess);
@@ -33,8 +34,12 @@ export const ahorcado = () => {
       const span = document.createElement("span")
       span.textContent = "_ "
       span.classList.add("word")
+      if (savedGame && savedGame.correctLetters.includes(word[i])){
+        span.textContent = word[i] + ""
+      }
       wordToGuess.appendChild(span)
     }
+    
   }
   const keyboard = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
 
@@ -43,19 +48,51 @@ export const ahorcado = () => {
       const letterBtn = document.createElement("button");
       letterBtn.textContent = letter;
       letterBtn.classList.add("keyboard");
+      letterBtn.disabled = savedGame ? savedGame.usedLetters.includes(letter) : false
       letterBtn.addEventListener("click", (e) =>{
         if (!gameFinished.value){
           const wordSpan = document.querySelectorAll(".word")
-          checkLetter(e.target.textContent, word, wordSpan, wrongLetter, mistakes, divContainer, gameFinished)
+          const letter = e.target.textContent
+          e.target.disabled = true
+          checkLetter(letter, word, wordSpan, wrongLetter, mistakes, divContainer, gameFinished, wrongLetters, saveGame)
         }
       })
       keyboardDiv.appendChild(letterBtn);
     }
   };
 
+  const saveGame = () => {
+    const wordSpan = document.querySelectorAll(".word")
+    const correctLetters = Array.from(wordSpan).map(span => span.textContent.trim()).filter(letter => letter !== '_')
+    const usedLetters = Array.from(keyboardDiv.querySelectorAll('button:disabled')).map(btn => btn.textContent);
+    const gameState = {
+      word: word,
+      mistakes: mistakes.value,
+      gameFinished: gameFinished.value,
+      correctLetters: correctLetters,
+      wrongLetters: wrongLetters,
+      usedLetters: usedLetters
+    };
+    localStorage.setItem('hangmanGame', JSON.stringify(gameState));
+  };
+
+  
+  const resetButton = () => {
+    const reset = document.createElement("button")
+    reset.textContent = "Reset"
+    reset.classList.add("reset-button")
+    divContainer.appendChild(reset)
+    reset.addEventListener("click", () =>{
+      localStorage.removeItem("hangmanGame")
+      divContainer.innerHTML = ""
+    ahorcado()
+    })
+  }
+
+
   start()
   printKeyboard();
-  
+  resetButton()
   } 
 
   

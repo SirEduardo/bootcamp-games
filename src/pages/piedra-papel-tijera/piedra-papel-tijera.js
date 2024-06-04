@@ -11,7 +11,7 @@ export const PPT = () => {
   const ROCK = "piedra";
   const PAPER = "papel";
   const SCISSORS = "tijeras";
-
+ 
   let compCounter = 0
   let userCounter = 0
 

@@ -6,13 +6,16 @@ import './style.css'
 
 const divApp = document.querySelector('#app')
 
-Header(divApp)
-
 const divContainer = document.createElement("div")
 divContainer.classList.add("container")
 
+Header(divApp)
+
 divApp.append(divContainer)
+
 
 ticTacToe()
 ahorcado()
 PPT()
+
+divContainer.innerHTML = ""
